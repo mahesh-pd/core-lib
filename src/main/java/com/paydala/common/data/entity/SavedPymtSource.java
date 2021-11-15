@@ -34,6 +34,9 @@ public class SavedPymtSource {
     @Column(name = "preferred")
     private Integer preferred;
 
+    @Column(name = "metadata")
+    private String metadata;
+
     public Integer getPreferred() {
         return preferred;
     }
@@ -96,5 +99,13 @@ public class SavedPymtSource {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getMetadata() {
+        return metadata;
+    }
+
+    public void setMetadata(String metadata) {
+        this.metadata = metadata;
     }
 }
