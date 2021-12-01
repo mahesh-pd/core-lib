@@ -9,5 +9,5 @@ import java.util.List;
 
 public interface SavedPymtSourceRepository extends JpaRepository<SavedPymtSource, Integer> {
 
-    List<SavedPymtSource> findByUser(@Param("user") String email);
+    List<SavedPymtSource> findByUser(@Param("user") User user);
 }
