@@ -18,4 +18,19 @@ public class GlobalExceptionHandler {
     public ResponseEntity badRequest(Exception exception) {
         return new ResponseEntity<>("There is an issue with the request", HttpStatus.BAD_REQUEST);
     }
+
+    @ExceptionHandler(value = UserExistsException.class)
+    public ResponseEntity userExists(Exception exception) {
+        return new ResponseEntity<>(exception.getMessage(), HttpStatus.OK);
+    }
+
+    @ExceptionHandler(value = UnauthorizedException.class)
+    public ResponseEntity unAuthorized(Exception exception) {
+        return new ResponseEntity<>(exception.getMessage(), HttpStatus.UNAUTHORIZED);
+    }
+
+    @ExceptionHandler(value = NotFoundException.class)
+    public ResponseEntity notFound(Exception exception) {
+        return new ResponseEntity<>(exception.getMessage(), HttpStatus.NOT_FOUND);
+    }
 }
