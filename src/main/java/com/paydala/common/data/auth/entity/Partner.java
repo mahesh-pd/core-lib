@@ -1,18 +1,22 @@
-package com.paydala.common.data.entity;
+package com.paydala.common.data.auth.entity;
 
 import javax.persistence.*;
 
-@Table(name = "region")
+@Table(name = "partner")
 @Entity
-public class Region {
+public class Partner {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Integer id;
 
+    @ManyToOne
+    @JoinColumn(name = "region_id")
+    private Region region;
+
     @Lob
-    @Column(name = "state")
-    private String state;
+    @Column(name = "company")
+    private String company;
 
     @Lob
     @Column(name = "details")
@@ -26,12 +30,20 @@ public class Region {
         this.details = details;
     }
 
-    public String getState() {
-        return state;
+    public String getCompany() {
+        return company;
     }
 
-    public void setState(String state) {
-        this.state = state;
+    public void setCompany(String company) {
+        this.company = company;
+    }
+
+    public Region getRegion() {
+        return region;
+    }
+
+    public void setRegion(Region region) {
+        this.region = region;
     }
 
     public Integer getId() {

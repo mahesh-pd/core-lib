@@ -1,4 +1,4 @@
-package com.paydala.common.data.entity;
+package com.paydala.common.data.auth.entity;
 
 import javax.persistence.*;
 

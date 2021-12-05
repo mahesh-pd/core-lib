@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.paydala.common.data.access;
+package com.paydala.common.data.auth.access;
 
-import com.paydala.common.data.entity.Kyc;
-import com.paydala.common.data.entity.SavedPymtSource;
+import com.paydala.common.data.auth.entity.Kyc;
+
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.query.Param;

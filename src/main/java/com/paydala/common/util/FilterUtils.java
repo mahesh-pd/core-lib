@@ -12,7 +12,7 @@ import java.util.function.Function;
 @Component
 public class FilterUtils {
 
-    @Value("${jwt.secret}")
+    //@Value("${jwt.secret}")
     private String secret;
 
     public static TokenDetails verifyJwtToken(String token) {
