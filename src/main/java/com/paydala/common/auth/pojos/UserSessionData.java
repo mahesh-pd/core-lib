@@ -11,6 +11,8 @@ public class UserSessionData {
     private String userId;
     private String email;
     private Object sessionData;
+    private String txnId1;
+    private String txnId2;
 
     public String getUserId() {
         return userId;
@@ -34,5 +36,21 @@ public class UserSessionData {
 
     public void setSessionData(Object sessionData) {
         this.sessionData = sessionData;
+    }
+
+    public String getTxnId1() {
+        return txnId1;
+    }
+
+    public void setTxnId1(String txnId1) {
+        this.txnId1 = txnId1;
+    }
+
+    public String getTxnId2() {
+        return txnId2;
+    }
+
+    public void setTxnId2(String txnId2) {
+        this.txnId2 = txnId2;
     }
 }
