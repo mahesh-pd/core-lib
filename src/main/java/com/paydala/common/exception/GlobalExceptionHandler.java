@@ -33,4 +33,9 @@ public class GlobalExceptionHandler {
     public ResponseEntity notFound(Exception exception) {
         return new ResponseEntity<>(exception.getMessage(), HttpStatus.NOT_FOUND);
     }
+
+    @ExceptionHandler(value = SessionDataException.class)
+    public ResponseEntity invalidSessionData(Exception exception) {
+        return new ResponseEntity<>(exception.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+    }
 }

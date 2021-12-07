@@ -9,6 +9,8 @@ import org.springframework.web.context.WebApplicationContext;
 @Scope(proxyMode= ScopedProxyMode.TARGET_CLASS, value= WebApplicationContext.SCOPE_SESSION)
 public class UserSessionData {
     private String userId;
+    private String email;
+    private Object sessionData;
 
     public String getUserId() {
         return userId;
@@ -16,5 +18,21 @@ public class UserSessionData {
 
     public void setUserId(String userId) {
         this.userId = userId;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Object getSessionData() {
+        return sessionData;
+    }
+
+    public void setSessionData(Object sessionData) {
+        this.sessionData = sessionData;
     }
 }
