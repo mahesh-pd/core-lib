@@ -14,6 +14,6 @@ public interface LedgerRepository extends CrudRepository<Ledger, Integer>, JpaSp
     //List<User> findByEmail(@Param("email") String email);
 
     @Modifying
-    @Query("update Ledger l set l.userId where l.id =:id")
-    void updateLedgerByTxn(@Param("id") Integer id);
+    @Query("update Ledger l set l.userId =:userId where l.id =:id")
+    void updateLedgerByTxn(@Param("id") Integer id, @Param("userId") Integer userId);
 }
