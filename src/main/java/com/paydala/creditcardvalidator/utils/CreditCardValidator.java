@@ -24,6 +24,7 @@ public class CreditCardValidator {
             cardInfo.setIsValid(false);
             return cardInfo;
         }
+        cardInfo.setCreditCardType(companyName.name());
         Validator validator = new Validator(cardNo, expiryDate, cvv);
        //check later
       /*  if (!validator.checkExpirationDate()) {

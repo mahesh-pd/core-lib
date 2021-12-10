@@ -14,5 +14,6 @@ public interface SavedPymtSourceRepository extends JpaRepository<SavedPymtSource
     List<SavedPymtSource> findByUser(@Param("user") User user);
 
     List<SavedPymtSource> findByUserId(@Param("user") Integer id);
+    List<SavedPymtSource> findByUserIdAndId(@Param("user") Integer userId,@Param("id") Integer id);
 
 }
