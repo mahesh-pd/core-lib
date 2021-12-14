@@ -69,6 +69,7 @@ public class JwtHelper {
             //Builds the JWT and serializes it to a compact, URL-safe string
             return builder.compact();
         } catch (Exception ex) {
+            LOG.error("Jwt Error :", ex);
             throw new JwtException("Error creating JWT token: " + ex.getMessage());
         }
     }
@@ -112,7 +113,7 @@ public class JwtHelper {
 
     private static Claims getAllClaimsFromToken(String token) {
         try {
-            LOG.info("Verifying token : {}", token);
+            //LOG.info("Verifying token : {}", token);
             byte[] decodedKey = Base64.getDecoder().decode(RSA_PUBLIC_KEY);
             //byte[] publicKeyBytes = decodedKey.getBytes();
 
