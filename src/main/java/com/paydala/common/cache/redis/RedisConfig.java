@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisPassword;
 import org.springframework.data.redis.connection.RedisSentinelConfiguration;
+import org.springframework.data.redis.connection.RedisStandaloneConfiguration;
 import org.springframework.data.redis.connection.lettuce.LettuceClientConfiguration;
 import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -15,7 +16,11 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 @Configuration
 public class RedisConfig {
+
     private final RedisProperties redisProperties;
+
+    private boolean SENTINEL_MODE = System.getenv("SENTINEL_MODE") != null ?
+            Boolean.valueOf(System.getenv("SENTINEL_MODE")) : false;
 
     @Autowired
     public RedisConfig(RedisProperties redisProperties) {
@@ -24,11 +29,15 @@ public class RedisConfig {
 
     @Bean
     protected LettuceConnectionFactory redisConnectionFactory() {
-        RedisSentinelConfiguration sentinelConfig = new RedisSentinelConfiguration()
-                .master(redisProperties.getSentinel().getMaster());
-        redisProperties.getSentinel().getNodes().forEach(s -> sentinelConfig.sentinel(s, redisProperties.getPort()));
-        sentinelConfig.setPassword(RedisPassword.of(redisProperties.getPassword()));
-        return new LettuceConnectionFactory(sentinelConfig, LettuceClientConfiguration.defaultConfiguration());
+        if(SENTINEL_MODE) {
+            RedisSentinelConfiguration sentinelConfig = new RedisSentinelConfiguration()
+                    .master(redisProperties.getSentinel().getMaster());
+            redisProperties.getSentinel().getNodes().forEach(s -> sentinelConfig.sentinel(s, redisProperties.getPort()));
+            sentinelConfig.setPassword(RedisPassword.of(redisProperties.getPassword()));
+            return new LettuceConnectionFactory(sentinelConfig, LettuceClientConfiguration.defaultConfiguration());
+        }
+
+        return new LettuceConnectionFactory(new RedisStandaloneConfiguration(redisProperties.getHost(), redisProperties.getPort()));
     }
 
     @Bean
