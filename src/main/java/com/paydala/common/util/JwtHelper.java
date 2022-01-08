@@ -34,11 +34,17 @@ public class JwtHelper {
     private static final long ttlMillis = System.getenv("JWT_TTL") != null ?
             Long.valueOf(System.getenv("JWT_TTL")) : 3600000;
 
-    private static final String RSA_PUBLIC_KEY = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAlWl/R2rv0ZsaQdQGMkhnx" +
-            "ArFXMlxZcXlVLqLTexDHG5wDjf2sMbR4kz7ICaAxnnBbrPBrERzIR2daOF0sNwOryQvd7QlbHNKNrHeC+GFiSb2sJsKxlKsq0N52YG" +
-            "9YsrDWqox1yap8rxf0g82/QMx8cqkTQ2/Ev7tUug+xDqBMl1N9gESMfo2527I0W8Wu1l3U67DO+QX8OzByKGzEVl1zzJejZZZaABSC" +
-            "o2Ydq8RBXZaEjREzKz1sWD4wc2smuROkDAaFt6zhHKFTIn2WHfdxX5RyqUYqGfRgYPW7hq02Qo632tTyALNpGRStu7CBiDB5hro1Xs" +
-            "lXcNDpeUtafs36QIDAQAB";
+    //private static final String RSA_PUBLIC_KEY = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAlWl/R2rv0ZsaQdQGMkhnx" +
+    //        "ArFXMlxZcXlVLqLTexDHG5wDjf2sMbR4kz7ICaAxnnBbrPBrERzIR2daOF0sNwOryQvd7QlbHNKNrHeC+GFiSb2sJsKxlKsq0N52YG" +
+    //        "9YsrDWqox1yap8rxf0g82/QMx8cqkTQ2/Ev7tUug+xDqBMl1N9gESMfo2527I0W8Wu1l3U67DO+QX8OzByKGzEVl1zzJejZZZaABSC" +
+    //        "o2Ydq8RBXZaEjREzKz1sWD4wc2smuROkDAaFt6zhHKFTIn2WHfdxX5RyqUYqGfRgYPW7hq02Qo632tTyALNpGRStu7CBiDB5hro1Xs" +
+    //        "lXcNDpeUtafs36QIDAQAB";
+
+    private static final String RSA_PUBLIC_KEY = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAjmAeNZDKhJJP+EXt0FtEfS" +
+            "Lqqbkrj3wUINs/+/c2CaUU9IsY48Ai29KheEwl94n4YM3vxCzLEhKBfdFQPbGfFYPRQrmVqTtz8VTNCmpor7B8lm+amU6Z3aXjY7rNkx" +
+            "UXpPr9byqiNJ9m/SD+jhlMcDpvzhZPfyU8yyoZqYJlr/ZVND9t7QQwnDush4BI6pMq/5ESkJ+VKLqpo3jZO512+XJD9vUdEYdOyOQUWs" +
+            "kSzYjO1LCSpWtjwoSwzq9QZhnUtmjeRErshipcogEs+Y8lTZ+PPtULAKWfRAbGIEJUoantE0llaZVPwu8g8509N8dz3tzRFXovlXQumW" +
+            "cd2Vt8wQIDAQAB";
 
     public static String createJWT(Map<String, Object> claims) {
 
