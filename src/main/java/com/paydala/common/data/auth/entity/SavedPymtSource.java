@@ -1,10 +1,20 @@
 package com.paydala.common.data.auth.entity;
 
+import com.paydala.common.data.converters.HashMapConverter;
+import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
+import org.hibernate.annotations.Type;
+import org.hibernate.annotations.TypeDef;
+
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Map;
 
 @Table(name = "saved_pymt_source")
 @Entity
+@TypeDef(
+        name = "json",
+        typeClass = JsonBinaryType.class
+)
 public class SavedPymtSource {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,7 +44,8 @@ public class SavedPymtSource {
     @Column(name = "preferred")
     private Integer preferred;
 
-    @Column(name = "metadata")
+    @Type(type = "json")
+    @Column(name = "metadata", columnDefinition = "json")
     private String metadata;
 
     public Integer getPreferred() {

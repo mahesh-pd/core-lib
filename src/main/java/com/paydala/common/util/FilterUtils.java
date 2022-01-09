@@ -14,7 +14,7 @@ import java.util.function.Function;
 public class FilterUtils {
 
     private static String[] requestUrls = new String[]{"/auth-service/registeruser", "/auth-service/getusertoken",
-            "/auth-service/checkuser", "/auth-service/guestlogin"};
+            "/auth-service/checkuser", "/auth-service/guestlogin", "/auth-service/testsave"};
 
     public static boolean isAuthRequired(String url) {
         for(String s : requestUrls) {
