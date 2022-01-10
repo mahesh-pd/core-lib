@@ -1,6 +1,5 @@
 package com.paydala.common.data.auth.entity;
 
-import com.paydala.common.data.converters.HashMapConverter;
 import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
 import org.hibernate.annotations.Type;
 import org.hibernate.annotations.TypeDef;
