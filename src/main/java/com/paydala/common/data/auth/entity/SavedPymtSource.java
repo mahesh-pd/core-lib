@@ -1,6 +1,7 @@
 package com.paydala.common.data.auth.entity;
 
 import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
+import java.io.Serializable;
 import org.hibernate.annotations.Type;
 import org.hibernate.annotations.TypeDef;
 
@@ -14,7 +15,7 @@ import java.util.Map;
         name = "json",
         typeClass = JsonBinaryType.class
 )
-public class SavedPymtSource {
+public class SavedPymtSource implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)

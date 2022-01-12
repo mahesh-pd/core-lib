@@ -20,7 +20,7 @@ public class SessionHelper {
         } else {
             paymentData = new PaymentData();
         }
-        paymentData = (PaymentData) obj;
+        
         List<Integer> transactions = null;
         if (CollectionUtils.isEmpty(paymentData.getTransactionIds())) {
             transactions = new ArrayList<>();
