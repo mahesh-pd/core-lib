@@ -45,4 +45,14 @@ public class PaymentData implements Serializable {
     public void setPaymentType(int paymentType) {
         this.paymentType = paymentType;
     }
+
+    @Override
+    public String toString() {
+        return "PaymentData{" +
+                "sources=" + sources +
+                ", transactionIds=" + transactionIds +
+                ", kyc=" + kyc +
+                ", paymentType=" + paymentType +
+                '}';
+    }
 }

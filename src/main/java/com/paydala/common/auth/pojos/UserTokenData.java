@@ -10,6 +10,7 @@ import org.springframework.web.context.WebApplicationContext;
 public class UserTokenData {
 
     private TokenDetails tokenDetails;
+    private String token;
 
     public TokenDetails getTokenDetails() {
         return tokenDetails;
@@ -17,5 +18,13 @@ public class UserTokenData {
 
     public void setTokenDetails(TokenDetails tokenDetails) {
         this.tokenDetails = tokenDetails;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 }

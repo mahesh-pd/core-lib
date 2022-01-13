@@ -119,4 +119,15 @@ public class SavedPymtSource implements Serializable{
     public void setMetadata(String metadata) {
         this.metadata = metadata;
     }
+
+    @Override
+    public String toString() {
+        return "SavedPymtSource{" +
+                "id=" + id +
+                ", user=" + user +
+                ", pymtType=" + pymtType +
+                ", preferred=" + preferred +
+                ", metadata='" + metadata + '\'' +
+                '}';
+    }
 }

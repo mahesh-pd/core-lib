@@ -10,16 +10,29 @@ import java.util.concurrent.TimeUnit;
 public class RedisCacheService implements CacheService {
 
     private final RedisUtil<String> redisStringUtil;
+    private final RedisUtil<Object> redisObjectUtil;
 
     @Autowired
-    public RedisCacheService(RedisUtil<String> redisStringUtil) {
+    public RedisCacheService(RedisUtil<String> redisStringUtil, RedisUtil<Object> redisObjectUtil) {
         this.redisStringUtil = redisStringUtil;
+        this.redisObjectUtil = redisObjectUtil;
     }
 
     @Override
     public void setObjectAsString(String key, String value) {
         redisStringUtil.putValue(key, value);
         redisStringUtil.setExpire(key, 1, TimeUnit.HOURS);
+    }
+
+    @Override
+    public void setObject(String key, Object obj) {
+        redisObjectUtil.putValue(key, obj);
+        redisStringUtil.setExpire(key, 1, TimeUnit.HOURS);
+    }
+
+    @Override
+    public Object getObject(String key) {
+        return redisObjectUtil.getValue(key);
     }
 
     @Override
