@@ -80,4 +80,16 @@ public class SessionHelper {
 
         return null;
     }
+
+    public static void setUserData(Integer userId, String token) {
+        cacheService.setObject("login_user:" + token, userId);
+    }
+
+    public static Integer getUserData(String token) {
+        Object obj = cacheService.getObject("login_user:" + token);
+        if(obj != null) {
+            return Integer.valueOf(String.valueOf(obj));
+        }
+        return -1;
+    }
 }
