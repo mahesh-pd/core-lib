@@ -6,6 +6,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.transaction.annotation.Transactional;
 
 @Transactional
@@ -15,5 +17,9 @@ public interface SavedPymtSourceRepository extends JpaRepository<SavedPymtSource
 
     List<SavedPymtSource> findByUserId(@Param("user") Integer id);
     List<SavedPymtSource> findByUserIdAndId(@Param("user") Integer userId,@Param("id") Integer id);
+    
+    @Modifying
+    @Query("update SavedPymtSource s set s.preferred = 0 where s.id !=:id and s.user.id =:userId")
+    void updateByIdAndUserId(@Param("id") Integer id, @Param("userId") Integer userId);
 
 }
