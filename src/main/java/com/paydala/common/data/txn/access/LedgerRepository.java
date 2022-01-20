@@ -18,5 +18,8 @@ public interface LedgerRepository extends CrudRepository<Ledger, Integer>, JpaSp
     void updateLedgerByTxn(@Param("id") Integer id, @Param("userId") Integer userId);
     
     @Query("SELECT COALESCE(SUM(amount),0.0) AS deposits FROM Ledger WHERE txnType = 1 and toId = :userId")
-    float getBalance(@Param("userId") Integer userId);
+    float getDepositAmount(@Param("userId") Integer userId);
+    
+    @Query("SELECT COALESCE(SUM(amount),0.0) AS withdrawals FROM Ledger WHERE txnType = 2 and fromId = :userId")
+    float getWithdrawalAmount(@Param("userId") Integer userId);    
 }
