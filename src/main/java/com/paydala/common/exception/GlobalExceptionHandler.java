@@ -62,4 +62,10 @@ public class GlobalExceptionHandler {
         LOG.error("Global Exception Handler [JWT Error]: ", exception);
         return new ResponseEntity<>(exception.getMessage(), HttpStatus.UNAUTHORIZED);
     }
+
+    @ExceptionHandler(value = PaymentException.class)
+    public ResponseEntity transferException(Exception exception) {
+        LOG.error("Global Exception Handler [Payment Error]: ", exception);
+        return new ResponseEntity<>(exception.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+    }
 }

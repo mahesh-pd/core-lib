@@ -25,7 +25,7 @@ public enum State {
     /**
      * The state's name.
      */
-    private String name;
+    private String fullname;
 
     /**
      * The state's abbreviation.
@@ -47,11 +47,11 @@ public enum State {
     /**
      * Constructs a new state.
      *
-     * @param name the state's name.
+     * @param fullname the state's name.
      * @param abbreviation the state's abbreviation.
      */
-    State(String name, String abbreviation) {
-        this.name = name;
+    State(String fullname, String abbreviation) {
+        this.fullname = fullname;
         this.abbreviation = abbreviation;
     }
 
@@ -62,6 +62,14 @@ public enum State {
      */
     public String getAbbreviation() {
         return abbreviation;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public String getFullname() {
+        return this.fullname;
     }
 
     /**
@@ -94,6 +102,6 @@ public enum State {
 
     @Override
     public String toString() {
-        return name;
+        return fullname;
     }
 }
