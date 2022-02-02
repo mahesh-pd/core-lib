@@ -30,8 +30,8 @@ public class FilterUtils {
     public static void addCORSHeaders(HttpServletResponse response) {
         response.setHeader("Access-Control-Allow-Origin", "*");
         response.addHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE, HEAD");
-        response.addHeader("Access-Control-Allow-Headers", "X-PINGOTHER, Origin, X-Requested-With, Content-Type, Accept, Authorization, Content-Disposition, OrganizationId, ConversationalCloudAuthorization");
-        //https://globaljira.liveperson.com/browse/LE-94678
+        response.addHeader("Access-Control-Allow-Headers", "X-PINGOTHER, Origin, X-Requested-With, " +
+                "Content-Type, Accept, Authorization, Content-Disposition");
 
         //https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options
         response.addHeader("x-content-type-options", "nosniff");
