@@ -2,6 +2,7 @@ package com.paydala.common.data.txn.entity;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.Date;
 
 @Table(name = "ledger")
 @Entity
@@ -40,6 +41,9 @@ public class Ledger {
 
     @Column(name = "txn_ref", length = 100)
     private String txnRef;
+    
+    @Column(name = "txn_time", nullable = false)
+    private Date txnTime;
 
     public String getTxnRef() {
         return txnRef;
@@ -128,4 +132,21 @@ public class Ledger {
     public void setId(Integer id) {
         this.id = id;
     }
+
+    /**
+     * @return the txnTime
+     */
+    public Date getTxnTime() {
+        return txnTime;
+    }
+
+    /**
+     * @param txnTime the txnTime to set
+     */
+    public void setTxnTime(Date txnTime) {
+        this.txnTime = txnTime;
+    }
+
+  
+    
 }
