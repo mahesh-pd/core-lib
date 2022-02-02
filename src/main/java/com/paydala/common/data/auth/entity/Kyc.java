@@ -1,5 +1,6 @@
 package com.paydala.common.data.auth.entity;
 
+import java.util.Date;
 import javax.persistence.*;
 
 @Table(name = "kyc")
@@ -25,6 +26,16 @@ public class Kyc {
 
     @Column(name = "issuing_state", length = 50)
     private String issuingState;
+    
+    @Column(name = "last_kyc")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date lastKyc;
+    
+    @Column(name = "status")
+    private Boolean status;
+    
+    @Column(name = "error_details")
+    private String errorDetails;
 
     public String getIssuingState() {
         return issuingState;
@@ -72,5 +83,29 @@ public class Kyc {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+    
+        public Date getLastKyc() {
+        return lastKyc;
+    }
+
+    public void setLastKyc(Date lastKyc) {
+        this.lastKyc = lastKyc;
+    }
+
+    public Boolean getStatus() {
+        return status;
+    }
+
+    public void setStatus(Boolean status) {
+        this.status = status;
+    }
+
+    public String getErrorDetails() {
+        return errorDetails;
+    }
+
+    public void setErrorDetails(String errorDetails) {
+        this.errorDetails = errorDetails;
     }
 }
