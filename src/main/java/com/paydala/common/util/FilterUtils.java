@@ -39,11 +39,10 @@ public class FilterUtils {
         response.addHeader("strict-transport-security", "max-age=31536000");
         //https://content-security-policy.com/
         response.addHeader("content-security-policy",
-                "default-src *.liveperson.net *.botcentralai.com;"
-                        + " script-src *.liveperson.net *.botcentralai.com;"
-                        + " connect-src *.liveperson.net *.botcentralai.com *.botcentralapi.com;"
-//                          + " img-src *.liveperson.net *.botcentralai.com;"
-                        + " style-src *.liveperson.net *.botcentralai.com;");
+                "default-src *.paydala.com;"
+                        + " script-src *.paydala.com;"
+                        + " connect-src *.paydala.com;"
+                        + " style-src *.paydala.com;");
         //https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection
         response.addHeader("X-XSS-Protection", "1");
     }

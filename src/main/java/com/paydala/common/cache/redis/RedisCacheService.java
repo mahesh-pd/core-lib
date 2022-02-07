@@ -25,6 +25,12 @@ public class RedisCacheService implements CacheService {
     }
 
     @Override
+    public void setObjectAsString(String key, String value, int ttl) {
+        redisStringUtil.putValue(key, value);
+        redisStringUtil.setExpire(key, ttl, TimeUnit.SECONDS);
+    }
+
+    @Override
     public void setObject(String key, Object obj) {
         redisObjectUtil.putValue(key, obj);
         redisStringUtil.setExpire(key, 1, TimeUnit.HOURS);

@@ -5,6 +5,8 @@ public interface CacheService {
 
     String getObjectAsString(String key);
 
+    void setObjectAsString(String key, String value, int ttl);
+
     Object getObject(String key);
 
     void setObject(String key, Object obj);
